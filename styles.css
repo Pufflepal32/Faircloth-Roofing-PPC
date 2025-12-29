@@ -1609,8 +1609,16 @@ h4 { font-size: 1.1rem; font-weight: 600; }
 }
 
 .trust-icon.bbb {
-    background: white;
-    border-radius: 8px;
+    background: transparent;
+    border-radius: 0;
+    width: auto;
+    height: auto;
+}
+
+.trust-icon.bbb img {
+    display: block;
+    height: 45px;
+    width: auto;
 }
 
 .bbb-text {
