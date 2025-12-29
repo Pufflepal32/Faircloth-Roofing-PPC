@@ -1993,4 +1993,51 @@ h4 { font-size: 1.1rem; font-weight: 600; }
     .footer-green {
         padding-bottom: 20px;
     }
+
+    /* Compact hero for mobile - form visible above fold */
+    .price-hero {
+        min-height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .price-hero .price-hero-heading {
+        font-size: 22px;
+        line-height: 1.15;
+    }
+
+    .price-hero .price-hero-excerpt {
+        margin-top: 12px;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .price-hero .price-hero-excerpt p {
+        margin-bottom: 8px;
+    }
+
+    .price-hero .price-hero-form {
+        margin-top: 16px;
+        padding: 16px 12px;
+    }
+
+    .price-hero .price-hero-form-intro {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .price-hero .price-hero-form-outro {
+        margin-top: 12px;
+        font-size: 12px;
+    }
+
+    .price-hero .price-hero-button {
+        height: 48px;
+        font-size: 16px;
+    }
+
+    .price-hero .price-hero-form-input {
+        height: 48px;
+        font-size: 16px;
+    }
 }
