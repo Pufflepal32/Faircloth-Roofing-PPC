@@ -318,6 +318,7 @@ h4 { font-size: 1.1rem; font-weight: 600; }
 @media(min-width:1025px){.price-hero .price-hero-wrapper,.price-hero-global-module-wrapper,.price-hero-meta .price-hero-meta-wrapper{padding-inline:0}}
 .price-hero{font-family:Sarabun,sans-serif;padding-bottom:15px;padding-top:15px;position:relative;min-height:calc(100vh - var(--header-height));min-height:calc(100svh - var(--header-height));display:flex;flex-direction:column}
 @media(min-width:768px){.price-hero{padding-bottom:25px;padding-top:25px}}
+@media(min-width:769px){.price-hero{min-height:calc(100vh - var(--header-height) - 120px);min-height:calc(100svh - var(--header-height) - 120px)}}
 .price-hero .price-hero-button{-webkit-appearance:none;-moz-appearance:none;appearance:none;background:#c41e3a;border:0;color:#fff;cursor:pointer;font-family:inherit;font-size:18px;font-weight:600;gap:10px;height:56px;justify-content:center;text-decoration:unset;width:100%}
 .price-hero .price-hero-button,.price-hero .price-hero-top{align-items:center;display:grid;grid-auto-flow:column}
 .price-hero .price-hero-heading{font-size:26px;line-height:1.2;margin:0;color:#fff}
@@ -1396,6 +1397,101 @@ h4 { font-size: 1.1rem; font-weight: 600; }
 }
 
 /* ===================================
+   Trust Strip (Bottom of Benefits Section)
+   =================================== */
+.trust-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin-top: 40px;
+    padding: 0;
+    background: linear-gradient(135deg, #1a2744 0%, #2d3a52 100%);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.trust-strip-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 767px) {
+    .trust-strip {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .trust-strip-item {
+        padding: 18px 10px;
+        font-size: 0.75rem;
+        gap: 6px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .trust-strip-item:nth-child(odd) {
+        border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .trust-strip-item:last-child {
+        grid-column: 1 / -1;
+        border-bottom: none;
+    }
+
+    .trust-strip-item:nth-child(4),
+    .trust-strip-item:nth-child(5) {
+        border-bottom: none;
+    }
+}
+
+.trust-strip-item img {
+    height: 50px;
+    width: auto;
+}
+
+@media (max-width: 767px) {
+    .trust-strip-item img {
+        height: 42px;
+    }
+}
+
+.trust-strip-link {
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.trust-strip-link:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.trust-strip-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.15);
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .trust-strip-divider {
+        display: block;
+    }
+}
+
+.trust-strip-stars {
+    display: flex;
+    gap: 2px;
+}
+
+/* ===================================
    Footer
    =================================== */
 .footer-green {
@@ -1505,6 +1601,56 @@ h4 { font-size: 1.1rem; font-weight: 600; }
     }
 }
 
+/* Desktop Benefits/Form Section - Taller */
+@media (min-width: 768px) {
+    .benefits-section {
+        padding: 80px 0;
+    }
+
+    .quote-form-box {
+        padding: 36px;
+        min-height: 520px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .quote-form-box .form-header-new {
+        margin-bottom: 24px;
+    }
+
+    .quote-form-box .form-header-new h3 {
+        font-size: 1.75rem;
+    }
+
+    .quote-form-box .form-field-new {
+        margin-bottom: 20px;
+    }
+
+    .quote-form-box .form-field-new input {
+        padding: 16px 20px;
+        font-size: 1.05rem;
+    }
+
+    .quote-form-box .btn-continue,
+    .quote-form-box .btn-submit-new {
+        padding: 16px 28px;
+        font-size: 1.1rem;
+    }
+
+    .quote-form-box .security-note {
+        margin-top: 24px;
+        font-size: 0.85rem;
+    }
+
+    .quote-form-box .sms-consent {
+        margin-top: 20px;
+    }
+
+    .quote-form-box .sms-consent label {
+        font-size: 0.8rem;
+    }
+}
+
 /* ===================================
    Trust Bar (Premium Design)
    =================================== */
@@ -1550,13 +1696,71 @@ h4 { font-size: 1.1rem; font-weight: 600; }
     flex: 1;
     min-width: 140px;
     justify-content: center;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.trust-link {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.trust-link:hover {
+    background: rgba(255,255,255,0.05);
+    transform: translateY(-2px);
 }
 
 @media (max-width: 767px) {
+    /* Show BBB and Licensed in second row - below fold */
+    .trust-item-bbb,
+    .trust-item-licensed {
+        order: 2;
+    }
+
     .trust-item {
         flex: 0 0 50%;
-        padding: 20px 16px;
-        justify-content: flex-start;
+        padding: 16px 10px;
+        justify-content: center;
+        overflow: visible;
+        gap: 10px;
+    }
+
+    .trust-icon {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+    }
+
+    .trust-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .trust-stars {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+
+    .stars-row {
+        display: flex;
+        gap: 1px;
+    }
+
+    .stars-row svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .trust-rating {
+        font-size: 1.3rem;
+    }
+
+    .trust-label {
+        font-size: 12px;
+    }
+
+    .trust-number {
+        font-size: 1.3rem;
     }
 }
 
@@ -1955,6 +2159,12 @@ h4 { font-size: 1.1rem; font-weight: 600; }
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
     padding: 10px 12px;
     gap: 10px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.sticky-mobile-cta.visible {
+    transform: translateY(0);
 }
 
 .sticky-cta-phone {
@@ -1995,18 +2205,18 @@ h4 { font-size: 1.1rem; font-weight: 600; }
 
 @media (max-width: 768px) {
     body {
-        padding-bottom: 80px;
+        padding-bottom: 0;
     }
 
     .footer-green {
-        padding-bottom: 20px;
+        padding-bottom: 90px;
     }
 
-    /* Compact hero for mobile - form visible above fold */
+    /* Compact hero - readable text, tight spacing */
     .price-hero {
         min-height: auto;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 8px;
+        padding-bottom: 8px;
     }
 
     .price-hero .price-hero-heading {
@@ -2015,37 +2225,47 @@ h4 { font-size: 1.1rem; font-weight: 600; }
     }
 
     .price-hero .price-hero-excerpt {
-        margin-top: 12px;
+        margin-top: 8px;
         font-size: 15px;
-        line-height: 1.5;
+        line-height: 1.4;
     }
 
     .price-hero .price-hero-excerpt p {
-        margin-bottom: 8px;
+        margin-bottom: 4px;
     }
 
     .price-hero .price-hero-form {
-        margin-top: 16px;
-        padding: 16px 12px;
+        margin-top: 10px;
+        padding: 12px 10px;
     }
 
     .price-hero .price-hero-form-intro {
         font-size: 14px;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 
     .price-hero .price-hero-form-outro {
-        margin-top: 12px;
+        margin-top: 8px;
         font-size: 12px;
     }
 
     .price-hero .price-hero-button {
-        height: 48px;
+        height: 46px;
         font-size: 16px;
     }
 
     .price-hero .price-hero-form-input {
-        height: 48px;
+        height: 46px;
         font-size: 16px;
     }
+
+    /* Compact trust bar */
+    .trust-bar {
+        padding: 6px 0;
+    }
+
+    .trust-item {
+        padding: 12px 8px;
+    }
 }
+
